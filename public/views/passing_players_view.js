@@ -2,7 +2,10 @@ var PassingPlayersView = Backbone.View.extend({
   tagName: "ul",
 
   initialize: function() {
-    this.listenTo(this.collection, 'add', this.addAll);
+    this.playerViews = [];
+
+
+    this.listenTo(this.collection, 'add', this.addOne);
     this.listenTo(this.collection, 'remove', this.removeOne);
   },
 
@@ -17,8 +20,14 @@ var PassingPlayersView = Backbone.View.extend({
 
   addOne: function(player){
     var view = new PassingPlayerView({model: player});
-    view.render();
-    this.$el.append(view.$el);
+    console.log(view);
+    console.log(view.model.get('username'))
+    console.log(userData.username)
+    if (view.model.get('username') !== "table" | view.model.get('username') !== userData.username) {
+      this.playerViews.push(view);
+      view.render();
+      this.$el.append(view.$el);
+    } 
   },
 
   addAll: function(){
@@ -30,6 +39,7 @@ var PassingPlayersView = Backbone.View.extend({
   },
 
   removeOne: function(player){
+    console.log("In removeOne on passingPlayers view");
     var view = _.find(this.playerViews, function(view) {
       return view.model === player;
     })
