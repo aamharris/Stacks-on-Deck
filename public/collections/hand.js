@@ -33,6 +33,9 @@ var Hand = Backbone.Collection.extend({
     card.set({active: true});
     this.activeCard = card;
     this.trigger("cardActivate");
+    $("#hand-play").removeClass();
+    $("#hand-discard").removeClass();
+    $("#hand-pass").removeClass();
   },
 
   unsetActiveCard: function(){

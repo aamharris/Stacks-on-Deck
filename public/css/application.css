@@ -6,13 +6,11 @@ html {
 }
 
 body {
-  /*background-color: #222;*/
-  /*  background-color: #27ae60;*/
   background: url("/public/images/tablebackground.jpg");
   background-position: center;
-/*  font-family: "Times New Roman", Times, serif;*/
-overflow-x: no-scroll;
+  min-width: 300px;
 }
+
 
 
 .navbar-roomkey {
@@ -353,6 +351,33 @@ background-image: url("/public/images/stacksondeck-table-view.svg");
   display: inline-block;
 }
 
+ #card-options ul {
+  width: 200px;
+  background: #292929;
+  color: white;
+  list-style: none;
+  padding-left: 0;
+}
+
+#card-options li {
+  padding: 5%;
+  border-top: 1px solid #3c3c3c;
+}
+
+.sidebar-brand {
+  font-size: 140%;
+}
+#card-options li a {
+  font-size: 120%;
+}
+
+li.disabled > a:hover,
+li.disabled > a:focus {
+ color: #777;
+ text-decoration: none;
+ cursor: not-allowed;
+ background-color: transparent;
+}
 
 
 @media (max-width: 768px) {
@@ -453,5 +478,29 @@ background-image: url("/public/images/stacksondeck-table-view.svg");
   z-index: 99;
  }
 
+.sidebar-brand {
+  font-size: 100%;
+}
+#card-options li a {
+  font-size: 100%;
+}
 
+}
+
+li.disabled > a {
+  color: #777;
+}
+li.disabled > a:hover,
+li.disabled > a:focus {
+ color: #777;
+ text-decoration: none;
+ cursor: not-allowed;
+ background-color: transparent;
+
+ -webkit-touch-callout: none;
+ -webkit-user-select: none;
+ -khtml-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+ user-select: none;
 }
